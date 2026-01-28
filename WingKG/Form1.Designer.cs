@@ -30,6 +30,7 @@ namespace WingIDEKeygen
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label_version = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@ namespace WingIDEKeygen
             this.button1 = new System.Windows.Forms.Button();
             this.buttonVerify = new System.Windows.Forms.Button();
             this.button_url = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // comboBox1
@@ -51,6 +53,7 @@ namespace WingIDEKeygen
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(172, 21);
             this.comboBox1.TabIndex = 0;
+            this.toolTip1.SetToolTip(this.comboBox1, "Press Enter on here to open magicnumbers");
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.comboBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox1_KeyPress);
             // 
@@ -79,6 +82,7 @@ namespace WingIDEKeygen
             this.textBox_id.Size = new System.Drawing.Size(172, 20);
             this.textBox_id.TabIndex = 3;
             this.textBox_id.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.textBox_id, "Double click to generate a new value");
             this.textBox_id.TextChanged += new System.EventHandler(this.textBox_id_TextChanged);
             this.textBox_id.DoubleClick += new System.EventHandler(this.textBox_id_DoubleClick);
             // 
@@ -98,6 +102,8 @@ namespace WingIDEKeygen
             this.textBox_reqcode.Size = new System.Drawing.Size(172, 20);
             this.textBox_reqcode.TabIndex = 5;
             this.textBox_reqcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.textBox_reqcode, "Paste the request key given by Wing IDE into here and an\r\nactivation key will be " +
+        "automatically generated and pasted into\r\nyour clipboard");
             this.textBox_reqcode.TextChanged += new System.EventHandler(this.textBox_reqcode_TextChanged);
             this.textBox_reqcode.DoubleClick += new System.EventHandler(this.textBox_reqcode_DoubleClick);
             // 
@@ -117,6 +123,8 @@ namespace WingIDEKeygen
             this.textBox_actcode.Size = new System.Drawing.Size(172, 20);
             this.textBox_actcode.TabIndex = 7;
             this.textBox_actcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.toolTip1.SetToolTip(this.textBox_actcode, "This will be populated automatically and the code will be\r\ncopied to your clipboa" +
+        "rd when you enter a request code");
             this.textBox_actcode.TextChanged += new System.EventHandler(this.textBox_actcode_TextChanged);
             this.textBox_actcode.DoubleClick += new System.EventHandler(this.textBox_actcode_DoubleClick);
             // 
@@ -127,6 +135,7 @@ namespace WingIDEKeygen
             this.button1.Size = new System.Drawing.Size(82, 23);
             this.button1.TabIndex = 8;
             this.button1.Text = "Magic Values";
+            this.toolTip1.SetToolTip(this.button1, "Show the magic numbers used for the activation code");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -137,6 +146,7 @@ namespace WingIDEKeygen
             this.buttonVerify.Size = new System.Drawing.Size(82, 23);
             this.buttonVerify.TabIndex = 9;
             this.buttonVerify.Text = "Verify Code";
+            this.toolTip1.SetToolTip(this.buttonVerify, "Validate the activation code against a Wing version");
             this.buttonVerify.UseVisualStyleBackColor = true;
             this.buttonVerify.Click += new System.EventHandler(this.buttonVerify_Click);
             // 
@@ -147,8 +157,13 @@ namespace WingIDEKeygen
             this.button_url.Size = new System.Drawing.Size(82, 23);
             this.button_url.TabIndex = 10;
             this.button_url.Text = "WingIDE";
+            this.toolTip1.SetToolTip(this.button_url, "Click once to open url\r\nClick twice for a hacking hint");
             this.button_url.UseVisualStyleBackColor = true;
             this.button_url.Click += new System.EventHandler(this.button_url_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             // 
             // MainForm
             // 
@@ -190,6 +205,7 @@ namespace WingIDEKeygen
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button buttonVerify;
         private System.Windows.Forms.Button button_url;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
