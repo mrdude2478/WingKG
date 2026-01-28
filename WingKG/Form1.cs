@@ -485,7 +485,7 @@ namespace WingIDEKeygen
                           : "Activation code is INVALID",
                     "Verification Result",
                     MessageBoxButtons.OK,
-                    MessageBoxIcon.Information
+                    valid ? MessageBoxIcon.Information : MessageBoxIcon.Error
                 );
             }
         }
