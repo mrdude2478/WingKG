@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Numerics;
 using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
@@ -565,6 +567,36 @@ namespace WingIDEKeygen
             catch (Exception ex)
             {
                 MessageBox.Show("Failed to open URL:\n" + ex.Message);
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox_id.Clear();
+            textBox_reqcode.Clear();
+            textBox_actcode.Clear();
+            string randid = "CN" + "123456789ABCDEF"[rng.Next(15)] + RandomString(17, goodchars);
+            textBox_id.Text = AddHyphens(randid);
+            Clipboard.SetText(textBox_id.Text);
+        }
+
+        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                string path = Path.Combine(
+                AppDomain.CurrentDomain.BaseDirectory,
+                "magicnumbers.txt"
+                );
+                
+                if (!File.Exists(path))
+                    return; // use defaults
+                
+                Process.Start(path);
+            }
+            else
+            {
+                e.Handled = true; // Ignore other key presses
             }
         }
     }
